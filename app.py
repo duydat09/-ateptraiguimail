@@ -11,7 +11,10 @@ sched = BlockingScheduler()
 
 @sched.scheduled_job('interval', minutes=1)
 def timed_job():
-    print("a")
+    
+
+@sched.scheduled_job('cron', day_of_week='mon-sun', hour=6)
+def scheduled_job():
     all_lover = Lover.objects()
     now = datetime.now()
     for item in all_lover:
@@ -24,9 +27,6 @@ def timed_job():
                 html_content = html.replace("{{name}}", name)
                 msg=Message('Nhắc nhở sinh nhật của người yêu',to=email, html=html_content)
                 gmail.send(msg)
-
-@sched.scheduled_job('cron', day_of_week='mon-fri', hour=17)
-def scheduled_job():
     print('This job is run every weekday at 5pm.')
 
 sched.start()
