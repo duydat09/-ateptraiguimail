@@ -13,7 +13,7 @@ for item in all_lover:
         if (now.day - item.date.day) == -1:
             email = item.user_id.email
             name = item.fullname
-            gmail=GMail('nguyenduydat1027@gmail.com','dat12345678')
+            gmail=GMail('20130075@student.hust.edu.vn','tuananh1k95')
             html = "<p>Ng&agrave;y mai l&agrave; sinh nhật của&nbsp{{name}}</p>"
             html_content = html.replace("{{name}}", name)
             msg=Message('Nhắc nhở sinh nhật của người yêu',to=email, html=html_content)
